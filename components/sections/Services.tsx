@@ -28,7 +28,7 @@ export default function Services() {
           className="mb-10 text-center sm:mb-12"
         >
           <span className="eyebrow">Services</span>
-          <h2 className="mt-2 text-3xl font-bold sm:text-4xl">What I Can Help You Build</h2>
+          <h2 className="mt-2 text-2xl font-bold sm:text-4xl">What I Can Help You Build</h2>
         </motion.div>
 
         <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">

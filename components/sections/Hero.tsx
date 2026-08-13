@@ -55,7 +55,7 @@ export default function Hero() {
     >
       <div
         aria-hidden="true"
-        className="absolute inset-x-0 top-0 h-[clamp(26rem,58svh,32rem)] md:inset-0 md:h-auto"
+        className="absolute inset-x-0 top-0 h-[clamp(19rem,44svh,24rem)] sm:h-[clamp(26rem,58svh,32rem)] md:inset-0 md:h-auto"
       >
         <Image
           src={portfolioBanner}
@@ -88,7 +88,7 @@ export default function Hero() {
         variants={container}
         initial={prefersReducedMotion ? false : "hidden"}
         animate="show"
-        className="relative z-10 mx-auto flex min-h-svh max-w-7xl items-end px-5 pt-72 pb-14 sm:px-8 sm:pb-16 md:min-h-[45rem] md:items-center md:px-10 md:py-24 lg:h-full lg:min-h-0 lg:px-10 xl:px-12"
+        className="relative z-10 mx-auto flex min-h-svh max-w-7xl items-end px-5 pt-24 pb-28 sm:px-8 sm:pt-72 sm:pb-28 md:min-h-[45rem] md:items-center md:px-10 md:py-24 lg:h-full lg:min-h-0 lg:px-10 xl:px-12"
       >
         <div className="w-full max-w-[38rem] sm:max-w-[32rem] md:max-w-[30rem] lg:max-w-[31rem] xl:max-w-[38rem]">
           <motion.div variants={item} className="flex flex-wrap items-center gap-x-4 gap-y-2">
@@ -111,7 +111,7 @@ export default function Hero() {
 
           <motion.p
             variants={item}
-            className="mt-6 flex items-center gap-3 text-[0.68rem] font-semibold tracking-[0.28em] text-indigo-200 uppercase sm:text-xs"
+            className="mt-4 flex items-center gap-3 text-[0.68rem] font-semibold tracking-[0.28em] text-indigo-200 uppercase sm:mt-6 sm:text-xs"
           >
             <span className="h-px w-9 bg-indigo-300/80" />
             {profile.greeting}
@@ -126,7 +126,7 @@ export default function Hero() {
 
           <motion.div
             variants={item}
-            className="mt-5 flex min-h-14 items-center text-xl leading-tight font-medium text-white sm:min-h-9 sm:text-2xl sm:leading-none"
+            className="mt-3 flex min-h-11 items-center text-xl leading-tight font-medium text-white sm:mt-5 sm:min-h-9 sm:text-2xl sm:leading-none"
           >
             <span className="sr-only">I am a Full Stack Web Developer, Problem Solver, and Learner.</span>
             <span aria-hidden="true" className="text-white/72">
@@ -150,13 +150,13 @@ export default function Hero() {
 
           <motion.div
             variants={item}
-            className="mt-7 grid w-full max-w-[34rem] grid-cols-2 gap-2.5 xl:flex xl:max-w-none xl:flex-wrap xl:items-center"
+            className="mt-5 grid w-full max-w-[34rem] grid-cols-2 gap-2 sm:mt-7 sm:gap-2.5 xl:flex xl:max-w-none xl:flex-wrap xl:items-center"
           >
             <a
               href="#portfolio"
               className={cn(
                 buttonVariants({ size: "lg" }),
-                "group relative isolate col-span-2 h-11 w-full gap-2 overflow-hidden rounded-full border border-indigo-300/25 bg-[linear-gradient(110deg,#6366f1_0%,#7c3aed_48%,#c026d3_100%)] bg-[length:180%_100%] px-3.5 text-white shadow-[0_12px_32px_rgba(79,70,229,0.3)] duration-300 hover:-translate-y-0.5 hover:bg-right hover:shadow-[0_16px_42px_rgba(124,58,237,0.42)] active:translate-y-0 active:scale-[0.98] xl:w-auto",
+                "group relative isolate col-span-2 h-10 w-full gap-2 overflow-hidden rounded-full border border-indigo-300/25 bg-[linear-gradient(110deg,#6366f1_0%,#7c3aed_48%,#c026d3_100%)] bg-[length:180%_100%] px-3 text-white shadow-[0_12px_32px_rgba(79,70,229,0.3)] duration-300 hover:-translate-y-0.5 hover:bg-right hover:shadow-[0_16px_42px_rgba(124,58,237,0.42)] active:translate-y-0 active:scale-[0.98] sm:h-11 sm:px-3.5 xl:w-auto",
               )}
             >
               <span
@@ -165,19 +165,19 @@ export default function Hero() {
               />
               <span className="relative z-10 sm:hidden">View work</span>
               <span className="relative z-10 hidden sm:inline">View selected work</span>
-              <span className="relative z-10 flex size-6 items-center justify-center rounded-full bg-white/15 ring-1 ring-inset ring-white/20 transition-colors duration-300 group-hover:bg-white/20">
-                <ArrowUpRight className="size-3.5 transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 group-hover:rotate-6" />
+              <span className="relative z-10 flex size-5 items-center justify-center rounded-full bg-white/15 ring-1 ring-inset ring-white/20 transition-colors duration-300 group-hover:bg-white/20 sm:size-6">
+                <ArrowUpRight className="size-3 transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 group-hover:rotate-6 sm:size-3.5" />
               </span>
             </a>
             <a
               href="#contact"
               className={cn(
                 buttonVariants({ size: "lg", variant: "outline" }),
-                "group h-11 w-full gap-2 rounded-full border-white/15 bg-[linear-gradient(180deg,rgba(255,255,255,0.11),rgba(255,255,255,0.045))] px-3 text-white shadow-[inset_0_1px_0_rgba(255,255,255,0.12),0_10px_28px_rgba(7,11,24,0.18)] backdrop-blur-xl duration-300 hover:-translate-y-0.5 hover:border-violet-300/45 hover:bg-[linear-gradient(180deg,rgba(139,92,246,0.22),rgba(99,102,241,0.1))] hover:text-white hover:shadow-[inset_0_1px_0_rgba(255,255,255,0.16),0_14px_34px_rgba(76,29,149,0.25)] active:translate-y-0 active:scale-[0.98] sm:px-3.5 xl:w-auto",
+                "group h-10 w-full gap-2 rounded-full border-white/15 bg-[linear-gradient(180deg,rgba(255,255,255,0.11),rgba(255,255,255,0.045))] px-3 text-white shadow-[inset_0_1px_0_rgba(255,255,255,0.12),0_10px_28px_rgba(7,11,24,0.18)] backdrop-blur-xl duration-300 hover:-translate-y-0.5 hover:border-violet-300/45 hover:bg-[linear-gradient(180deg,rgba(139,92,246,0.22),rgba(99,102,241,0.1))] hover:text-white hover:shadow-[inset_0_1px_0_rgba(255,255,255,0.16),0_14px_34px_rgba(76,29,149,0.25)] active:translate-y-0 active:scale-[0.98] sm:h-11 sm:px-3.5 xl:w-auto",
               )}
             >
-              <span className="flex size-6 items-center justify-center rounded-full bg-indigo-400/15 ring-1 ring-inset ring-indigo-200/15 transition-all duration-300 group-hover:bg-indigo-400/25 group-hover:ring-indigo-200/30">
-                <Mail className="size-3.5 text-indigo-100 transition-transform duration-300 group-hover:scale-110" />
+              <span className="flex size-5 items-center justify-center rounded-full bg-indigo-400/15 ring-1 ring-inset ring-indigo-200/15 transition-all duration-300 group-hover:bg-indigo-400/25 group-hover:ring-indigo-200/30 sm:size-6">
+                <Mail className="size-3 text-indigo-100 transition-transform duration-300 group-hover:scale-110 sm:size-3.5" />
               </span>
               Let&apos;s talk
             </a>
@@ -186,11 +186,11 @@ export default function Hero() {
               download
               className={cn(
                 buttonVariants({ size: "lg", variant: "ghost" }),
-                "group h-11 w-full gap-2 rounded-full border border-white/10 bg-black/15 px-3 text-white/72 shadow-[inset_0_1px_0_rgba(255,255,255,0.06)] backdrop-blur-md duration-300 hover:-translate-y-0.5 hover:border-fuchsia-300/25 hover:bg-white/[0.09] hover:text-white hover:shadow-[0_12px_28px_rgba(7,11,24,0.22)] active:translate-y-0 active:scale-[0.98] sm:px-3.5 xl:w-auto",
+                "group h-10 w-full gap-2 rounded-full border border-white/10 bg-black/15 px-3 text-white/72 shadow-[inset_0_1px_0_rgba(255,255,255,0.06)] backdrop-blur-md duration-300 hover:-translate-y-0.5 hover:border-fuchsia-300/25 hover:bg-white/[0.09] hover:text-white hover:shadow-[0_12px_28px_rgba(7,11,24,0.22)] active:translate-y-0 active:scale-[0.98] sm:h-11 sm:px-3.5 xl:w-auto",
               )}
             >
-              <span className="flex size-6 items-center justify-center rounded-full bg-white/[0.07] ring-1 ring-inset ring-white/10 transition-all duration-300 group-hover:bg-fuchsia-400/15 group-hover:ring-fuchsia-200/20">
-                <Download className="size-3.5 transition-transform duration-300 group-hover:translate-y-0.5" />
+              <span className="flex size-5 items-center justify-center rounded-full bg-white/[0.07] ring-1 ring-inset ring-white/10 transition-all duration-300 group-hover:bg-fuchsia-400/15 group-hover:ring-fuchsia-200/20 sm:size-6">
+                <Download className="size-3 transition-transform duration-300 group-hover:translate-y-0.5 sm:size-3.5" />
               </span>
               <span className="sm:hidden">CV</span>
               <span className="hidden sm:inline">Download CV</span>

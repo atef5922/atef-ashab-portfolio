@@ -172,7 +172,7 @@ export default function Header() {
               <Button
                 variant="outline"
                 size="icon"
-                className="size-11 rounded-full border-border bg-background/80 backdrop-blur"
+                className="size-11 rounded-full border-white/15 bg-black/45 text-white backdrop-blur-md hover:bg-black/60 hover:text-white dark:border-white/15 dark:bg-black/45 dark:text-white dark:hover:bg-black/60 dark:hover:text-white"
               />
             }
           >

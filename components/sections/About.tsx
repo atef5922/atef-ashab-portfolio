@@ -39,14 +39,14 @@ export default function About() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-80px" }}
             transition={{ duration: 0.5 }}
-            className="order-1 w-full max-w-[52rem] xl:col-start-2 xl:row-start-1"
+            className="order-1 w-full max-w-[52rem] text-center xl:col-start-2 xl:row-start-1 xl:text-left"
           >
             <span className="inline-flex items-center gap-2 text-[0.68rem] font-semibold tracking-[0.22em] text-primary uppercase">
               <Sparkles className="size-3.5" />
               Get to know me
             </span>
             <h2 className="mt-1.5 text-3xl font-bold tracking-tight sm:text-4xl">About me</h2>
-            <span aria-hidden="true" className="mt-4 block h-px w-16 bg-gradient-to-r from-primary to-violet-400/20" />
+            <span aria-hidden="true" className="mt-4 block h-px w-16 bg-gradient-to-r from-primary to-violet-400/20 mx-auto xl:mx-0" />
           </motion.header>
 
           <motion.div
@@ -102,7 +102,7 @@ export default function About() {
               one line. 3.44cqi keeps a ~4% margin for font fallback. Below `sm`
               the column is too narrow for one line at a readable size, so it wraps.
             */}
-            <h3 className="mt-3 text-2xl leading-tight font-semibold tracking-tight text-balance sm:text-[clamp(1.2rem,3.44cqi,2rem)]">
+            <h3 className="mt-3 text-xl leading-tight font-semibold tracking-tight text-balance sm:text-[clamp(1.2rem,3.44cqi,2rem)]">
               Building thoughtful web products, from interface to backend.
             </h3>
             <p className="mt-4 text-justify text-sm leading-6 text-muted-foreground sm:text-[0.95rem] sm:leading-7">

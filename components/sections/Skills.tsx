@@ -103,7 +103,7 @@ export default function Skills() {
           className="mb-10 text-center sm:mb-12"
         >
           <span className="eyebrow">Skills</span>
-          <h2 className="mt-2 text-3xl font-bold sm:text-4xl">Technologies I Work With</h2>
+          <h2 className="mt-2 text-2xl font-bold sm:text-4xl">Technologies I Work With</h2>
           <p className="mx-auto mt-3 max-w-xl text-muted-foreground">
             Tools and technologies I use to build modern, scalable web applications.
           </p>
