@@ -23,7 +23,7 @@ export default function About() {
   });
 
   return (
-    <section id="about" className="relative isolate overflow-hidden py-12 sm:py-14 lg:py-16">
+    <section id="about" className="relative isolate overflow-hidden py-6 sm:py-14 lg:py-16">
       <div aria-hidden="true" className="absolute top-1/2 -left-48 -z-10 size-96 -translate-y-1/2 rounded-full bg-indigo-500/8 blur-3xl" />
 
       <div className="mx-auto max-w-7xl px-5 sm:px-8 lg:px-10 xl:px-12">

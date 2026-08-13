@@ -18,7 +18,7 @@ export default function Services() {
   const services = getAllServices();
 
   return (
-    <section id="services" className="relative overflow-hidden py-12 sm:py-16 lg:py-20">
+    <section id="services" className="relative overflow-hidden py-8 sm:py-16 lg:py-20">
       <div className="relative z-10 mx-auto max-w-7xl px-5 sm:px-8 lg:px-10 xl:px-12">
         <motion.div
           initial={{ opacity: 0, y: 20 }}

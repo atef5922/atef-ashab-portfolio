@@ -88,7 +88,7 @@ export default function Hero() {
         variants={container}
         initial={prefersReducedMotion ? false : "hidden"}
         animate="show"
-        className="relative z-10 mx-auto flex min-h-svh max-w-7xl items-end px-5 pt-24 pb-28 sm:px-8 sm:pt-72 sm:pb-28 md:min-h-[45rem] md:items-center md:px-10 md:py-24 lg:h-full lg:min-h-0 lg:px-10 xl:px-12"
+        className="relative z-10 mx-auto flex min-h-svh max-w-7xl items-end px-5 pt-24 pb-24 sm:px-8 sm:pt-72 sm:pb-28 md:min-h-[45rem] md:items-center md:px-10 md:py-24 lg:h-full lg:min-h-0 lg:px-10 xl:px-12"
       >
         <div className="w-full max-w-[38rem] sm:max-w-[32rem] md:max-w-[30rem] lg:max-w-[31rem] xl:max-w-[38rem]">
           <motion.div variants={item} className="flex flex-wrap items-center gap-x-4 gap-y-2">

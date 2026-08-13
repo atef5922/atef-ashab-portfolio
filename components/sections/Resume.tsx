@@ -310,7 +310,7 @@ export default function Resume() {
   const resume = getResumeData();
 
   return (
-    <section id="resume" className="relative overflow-hidden py-12 sm:py-16 lg:py-20">
+    <section id="resume" className="relative overflow-hidden py-8 sm:py-16 lg:py-20">
       <div className="relative z-10 mx-auto max-w-7xl px-5 sm:px-8 lg:px-10 xl:px-12">
         <motion.header {...reveal} className="mx-auto mb-10 max-w-2xl text-center sm:mb-12">
           <span className="eyebrow">Resume</span>

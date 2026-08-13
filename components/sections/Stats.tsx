@@ -34,7 +34,7 @@ function StatCard({ icon, endValue, label, sublabel }: (typeof stats)[number]) {
 
 export default function Stats() {
   return (
-    <section id="stats" className="relative overflow-hidden py-10 sm:py-12">
+    <section id="stats" className="relative overflow-hidden py-8 sm:py-12">
       <div className="relative z-10 mx-auto max-w-6xl px-5 sm:px-8 lg:px-10 xl:px-12">
         <motion.div
           initial={{ opacity: 0, y: 20 }}

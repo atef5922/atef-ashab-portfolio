@@ -24,7 +24,9 @@ const linkIcons: Record<PortfolioItem["link"]["icon"], ComponentType<{ className
 };
 
 /** One page holds exactly the featured set, so the flagship work owns page one. */
-const PAGE_SIZE = FEATURED_PROJECT_COUNT;
+const DESKTOP_PAGE_SIZE = FEATURED_PROJECT_COUNT;
+/** Mobile shows fewer cards per page so the initial scroll stays short. */
+const MOBILE_PAGE_SIZE = 3;
 
 /** Widest run of page numbers rendered before collapsing the middle into an ellipsis. */
 const MAX_PAGE_SLOTS = 7;
@@ -61,24 +63,33 @@ export default function Portfolio() {
   const [activeFilter, setActiveFilter] = useState<ProjectCategory>("all");
   const [preview, setPreview] = useState<PortfolioItem | null>(null);
   const [page, setPage] = useState(1);
+  const [pageSize, setPageSize] = useState(DESKTOP_PAGE_SIZE);
   const gridRef = useRef<HTMLDivElement>(null);
   const hasPaged = useRef(false);
   const reduceMotion = useReducedMotion();
+
+  useEffect(() => {
+    const mql = window.matchMedia("(max-width: 639px)");
+    const applySize = () => setPageSize(mql.matches ? MOBILE_PAGE_SIZE : DESKTOP_PAGE_SIZE);
+    applySize();
+    mql.addEventListener("change", applySize);
+    return () => mql.removeEventListener("change", applySize);
+  }, []);
 
   const filteredItems = useMemo(
     () => items.filter((item) => matchesPortfolioFilter(item, activeFilter)),
     [items, activeFilter],
   );
 
-  const totalPages = Math.max(1, Math.ceil(filteredItems.length / PAGE_SIZE));
+  const totalPages = Math.max(1, Math.ceil(filteredItems.length / pageSize));
   // Clamped rather than stored, so a filter that shrinks the list can never
   // strand the view on a page that no longer exists.
   const currentPage = Math.min(page, totalPages);
-  const rangeStart = (currentPage - 1) * PAGE_SIZE;
+  const rangeStart = (currentPage - 1) * pageSize;
 
   const pageItems = useMemo(
-    () => filteredItems.slice(rangeStart, rangeStart + PAGE_SIZE),
-    [filteredItems, rangeStart],
+    () => filteredItems.slice(rangeStart, rangeStart + pageSize),
+    [filteredItems, rangeStart, pageSize],
   );
 
   const pageList = useMemo(() => buildPageList(currentPage, totalPages), [currentPage, totalPages]);
@@ -106,7 +117,7 @@ export default function Portfolio() {
   }
 
   return (
-    <section id="portfolio" className="relative overflow-hidden py-12 sm:py-16 lg:py-20">
+    <section id="portfolio" className="relative overflow-hidden py-8 sm:py-16 lg:py-20">
       <div className="relative z-10 mx-auto max-w-7xl px-5 sm:px-8 lg:px-10 xl:px-12">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
