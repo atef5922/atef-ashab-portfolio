@@ -154,7 +154,7 @@ function CertificateCarousel({ certificates }: { certificates: CertificationEntr
       }}
     >
       <PremiumCard>
-        <div className="flex items-center justify-between border-b border-border/75 px-4 py-3 sm:px-5">
+        <div className="flex items-center justify-between border-b border-border/75 px-3 py-2.5 sm:px-5 sm:py-3">
           <div className="flex items-center gap-2">
             <span className="relative flex size-2.5">
               <span className="absolute inline-flex size-full animate-ping rounded-full bg-emerald-400/55 motion-reduce:animate-none" />
@@ -169,7 +169,7 @@ function CertificateCarousel({ certificates }: { certificates: CertificationEntr
           </span>
         </div>
 
-        <div className="relative min-h-[42rem] sm:min-h-[40rem] lg:min-h-[31rem]">
+        <div className="relative min-h-[13rem] sm:min-h-[40rem] lg:min-h-[31rem]">
           <AnimatePresence initial={false} mode="wait">
             <motion.article
               key={activeCertificate.image}
@@ -180,12 +180,12 @@ function CertificateCarousel({ certificates }: { certificates: CertificationEntr
               animate={{ opacity: 1, x: 0 }}
               exit={reduceMotion ? { opacity: 0 } : { opacity: 0, x: -28 }}
               transition={{ duration: reduceMotion ? 0.1 : 0.38, ease: [0.22, 1, 0.36, 1] }}
-              className="absolute inset-0 grid lg:grid-cols-[minmax(0,1.55fr)_minmax(17rem,0.65fr)]"
+              className="absolute inset-0 grid content-start sm:content-normal lg:grid-cols-[minmax(0,1.55fr)_minmax(17rem,0.65fr)]"
             >
               <button
                 type="button"
                 onClick={() => setIsPreviewOpen(true)}
-                className="group/image relative m-3 cursor-pointer overflow-hidden rounded-xl border border-black/8 bg-white shadow-inner outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-card sm:m-4 lg:mr-0"
+                className="group/image relative m-3 h-44 cursor-pointer overflow-hidden rounded-xl border border-black/8 bg-white shadow-inner outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-card sm:m-4 sm:h-auto lg:mr-0"
                 aria-label={`Open full preview of ${activeCertificate.title}`}
               >
                 <Image
@@ -200,18 +200,18 @@ function CertificateCarousel({ certificates }: { certificates: CertificationEntr
                 </span>
               </button>
 
-              <div className="flex flex-col justify-center border-t border-border/75 p-5 lg:border-t-0 lg:border-l lg:p-7">
-                <span className="flex size-11 items-center justify-center rounded-2xl border border-primary/20 bg-primary/10 text-primary shadow-[0_12px_30px_rgba(99,102,241,0.12)]">
-                  <Award className="size-5" strokeWidth={1.8} />
+              <div className="hidden flex-col justify-start border-t border-border/75 p-4 sm:flex sm:justify-center sm:p-5 lg:border-t-0 lg:border-l lg:p-7">
+                <span className="flex size-9 items-center justify-center rounded-2xl border border-primary/20 bg-primary/10 text-primary shadow-[0_12px_30px_rgba(99,102,241,0.12)] sm:size-11">
+                  <Award className="size-4 sm:size-5" strokeWidth={1.8} />
                 </span>
-                <p className="mt-5 text-[0.65rem] font-semibold tracking-[0.18em] text-primary uppercase">
+                <p className="mt-3 hidden text-[0.65rem] font-semibold tracking-[0.18em] text-primary uppercase sm:mt-5 sm:block">
                   Certificate of completion
                 </p>
-                <h4 className="mt-2 text-xl leading-tight font-bold tracking-tight sm:text-2xl">
+                <h4 className="mt-1.5 text-lg leading-tight font-bold tracking-tight sm:mt-2 sm:text-2xl">
                   {activeCertificate.title}
                 </h4>
-                <div className="mt-5 border-t border-border/75 pt-4">
-                  <p className="text-[0.62rem] font-semibold tracking-[0.16em] text-muted-foreground uppercase">
+                <div className="mt-3 border-t border-border/75 pt-3 sm:mt-5 sm:pt-4">
+                  <p className="hidden text-[0.62rem] font-semibold tracking-[0.16em] text-muted-foreground uppercase sm:block">
                     Issued by
                   </p>
                   <p className="mt-1.5 text-sm font-semibold text-foreground sm:text-base">
@@ -227,7 +227,7 @@ function CertificateCarousel({ certificates }: { certificates: CertificationEntr
                 <button
                   type="button"
                   onClick={() => setIsPreviewOpen(true)}
-                  className="mt-6 inline-flex h-11 w-fit cursor-pointer items-center gap-2 rounded-full border border-primary/25 bg-primary/10 px-4 text-sm font-semibold text-primary transition-all duration-300 hover:border-primary/45 hover:bg-primary hover:text-primary-foreground hover:shadow-[0_12px_32px_rgba(99,102,241,0.24)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-card"
+                  className="mt-4 hidden h-10 w-fit cursor-pointer items-center gap-2 rounded-full border border-primary/25 bg-primary/10 px-4 text-sm font-semibold text-primary transition-all duration-300 hover:border-primary/45 hover:bg-primary hover:text-primary-foreground hover:shadow-[0_12px_32px_rgba(99,102,241,0.24)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-card sm:mt-6 sm:flex sm:h-11"
                 >
                   View certificate
                   <Maximize2 className="size-3.5" />
@@ -237,7 +237,7 @@ function CertificateCarousel({ certificates }: { certificates: CertificationEntr
           </AnimatePresence>
         </div>
 
-        <div className="flex flex-col gap-4 border-t border-border/75 px-4 py-4 sm:flex-row sm:items-center sm:justify-between sm:px-5">
+        <div className="flex flex-col gap-3 border-t border-border/75 px-3 py-3 sm:flex-row sm:items-center sm:justify-between sm:gap-4 sm:px-5 sm:py-4">
           <div className="flex items-center gap-1.5" aria-label="Choose certificate">
             {certificates.map((certificate, index) => (
               <button
@@ -259,7 +259,7 @@ function CertificateCarousel({ certificates }: { certificates: CertificationEntr
             <button
               type="button"
               onClick={() => setIsPaused((current) => !current)}
-              className="mr-1 inline-flex h-10 cursor-pointer items-center gap-2 rounded-full border border-border bg-background/55 px-3.5 text-xs font-semibold text-muted-foreground transition-colors duration-250 hover:border-primary/30 hover:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary"
+              className="mr-1 inline-flex h-9 cursor-pointer items-center gap-2 rounded-full border border-border bg-background/55 px-3 text-xs font-semibold text-muted-foreground transition-colors duration-250 hover:border-primary/30 hover:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary sm:h-10 sm:px-3.5"
               aria-label={isPaused ? "Resume automatic certificate slider" : "Pause automatic certificate slider"}
             >
               {isPaused ? <Play className="size-3.5" /> : <Pause className="size-3.5" />}
@@ -268,7 +268,7 @@ function CertificateCarousel({ certificates }: { certificates: CertificationEntr
             <button
               type="button"
               onClick={showPrevious}
-              className="inline-flex size-10 cursor-pointer items-center justify-center rounded-full border border-border bg-background/55 text-muted-foreground transition-all duration-250 hover:-translate-x-0.5 hover:border-primary/30 hover:bg-primary/10 hover:text-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary motion-reduce:transform-none"
+              className="inline-flex size-9 cursor-pointer items-center justify-center rounded-full border border-border bg-background/55 text-muted-foreground transition-all duration-250 hover:-translate-x-0.5 hover:border-primary/30 hover:bg-primary/10 hover:text-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary motion-reduce:transform-none sm:size-10"
               aria-label="Previous certificate"
             >
               <ChevronLeft className="size-4" />
@@ -276,7 +276,7 @@ function CertificateCarousel({ certificates }: { certificates: CertificationEntr
             <button
               type="button"
               onClick={showNext}
-              className="inline-flex size-10 cursor-pointer items-center justify-center rounded-full border border-primary/30 bg-primary text-primary-foreground shadow-[0_10px_25px_rgba(99,102,241,0.2)] transition-all duration-250 hover:translate-x-0.5 hover:bg-primary/90 hover:shadow-[0_12px_30px_rgba(99,102,241,0.3)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-card motion-reduce:transform-none"
+              className="inline-flex size-9 cursor-pointer items-center justify-center rounded-full border border-primary/30 bg-primary text-primary-foreground shadow-[0_10px_25px_rgba(99,102,241,0.2)] transition-all duration-250 hover:translate-x-0.5 hover:bg-primary/90 hover:shadow-[0_12px_30px_rgba(99,102,241,0.3)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-card motion-reduce:transform-none sm:size-10"
               aria-label="Next certificate"
             >
               <ChevronRight className="size-4" />
@@ -343,29 +343,29 @@ export default function Resume() {
                   className="relative pl-13 sm:pl-17"
                 >
                   <TimelineMarker icon={BriefcaseBusiness} />
-                  <PremiumCard className="p-5 sm:p-6 lg:p-7">
-                    <div className="flex flex-col gap-3 sm:flex-row sm:items-start sm:justify-between sm:gap-6">
+                  <PremiumCard className="p-4 sm:p-6 lg:p-7">
+                    <div className="flex flex-col gap-2 sm:flex-row sm:items-start sm:justify-between sm:gap-6">
                       <div>
-                        <h4 className="text-lg font-bold tracking-tight sm:text-xl">
+                        <h4 className="text-base font-bold tracking-tight sm:text-xl">
                           {entry.title}
                         </h4>
-                        <p className="mt-1 text-sm font-semibold text-primary sm:text-base">
+                        <p className="mt-1 text-xs font-semibold text-primary sm:text-base">
                           {entry.company}
                         </p>
                       </div>
-                      <span className="inline-flex w-fit items-center gap-1.5 rounded-full border border-primary/20 bg-primary/8 px-3 py-1.5 text-xs font-semibold text-primary">
+                      <span className="inline-flex w-fit items-center gap-1.5 rounded-full border border-primary/20 bg-primary/8 px-2.5 py-1 text-[0.7rem] font-semibold text-primary sm:px-3 sm:py-1.5 sm:text-xs">
                         <CalendarDays className="size-3.5" />
                         {entry.dateRange}
                       </span>
                     </div>
 
-                    <ul className="mt-5 space-y-3 sm:mt-6">
+                    <ul className="mt-3 space-y-2 sm:mt-6 sm:space-y-3">
                       {entry.bullets.map((bullet) => (
                         <li
                           key={bullet}
-                          className="flex items-start gap-3 text-sm leading-6 text-muted-foreground sm:text-[0.95rem] sm:leading-7"
+                          className="flex items-start gap-2.5 text-[0.8rem] leading-5 text-muted-foreground sm:gap-3 sm:text-[0.95rem] sm:leading-7"
                         >
-                          <span className="mt-1.5 flex size-4 shrink-0 items-center justify-center rounded-full bg-primary/12 text-primary">
+                          <span className="mt-1 flex size-3.5 shrink-0 items-center justify-center rounded-full bg-primary/12 text-primary sm:mt-1.5 sm:size-4">
                             <Check className="size-2.5" strokeWidth={2.5} />
                           </span>
                           <span>{bullet}</span>
@@ -373,11 +373,11 @@ export default function Resume() {
                       ))}
                     </ul>
 
-                    <div className="mt-6 flex flex-wrap gap-2 border-t border-border/75 pt-5">
+                    <div className="mt-4 flex flex-nowrap gap-1.5 overflow-x-auto border-t border-border/75 pt-3 [scrollbar-width:none] sm:mt-6 sm:flex-wrap sm:gap-2 sm:overflow-visible sm:pt-5 [&::-webkit-scrollbar]:hidden">
                       {experienceStack.map((technology) => (
                         <span
                           key={technology}
-                          className="rounded-full border border-border bg-background/55 px-3 py-1.5 text-[0.7rem] font-semibold text-muted-foreground transition-colors duration-200 hover:border-primary/30 hover:bg-primary/8 hover:text-primary"
+                          className="shrink-0 rounded-full border border-border bg-background/55 px-2 py-1 text-[0.65rem] font-semibold text-muted-foreground transition-colors duration-200 hover:border-primary/30 hover:bg-primary/8 hover:text-primary sm:px-3 sm:py-1.5 sm:text-[0.7rem]"
                         >
                           {technology}
                         </span>

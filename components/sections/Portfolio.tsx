@@ -122,7 +122,7 @@ export default function Portfolio() {
           </p>
         </motion.div>
 
-        <div className="mb-10 flex flex-wrap justify-center gap-2">
+        <div className="mb-10 flex flex-nowrap justify-start gap-2 overflow-x-auto [scrollbar-width:none] sm:flex-wrap sm:justify-center sm:overflow-visible [&::-webkit-scrollbar]:hidden">
           {filters.map((filter) => {
             const isActive = activeFilter === filter.filterKey;
             return (
@@ -131,7 +131,7 @@ export default function Portfolio() {
                 type="button"
                 aria-pressed={isActive}
                 onClick={() => changeFilter(filter.filterKey)}
-                className="relative cursor-pointer rounded-full px-4 py-1.5 text-sm font-medium text-muted-foreground transition-colors hover:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background"
+                className="relative shrink-0 cursor-pointer rounded-full px-4 py-1.5 text-sm font-medium text-muted-foreground transition-colors hover:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background"
               >
                 {isActive && (
                   <motion.span
