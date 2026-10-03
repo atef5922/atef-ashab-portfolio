@@ -14,7 +14,7 @@ const socialIcons: Record<string, typeof GithubIcon> = {
 export default function Footer() {
   return (
     <footer className="relative border-t border-border bg-background">
-      <div className="mx-auto flex max-w-7xl flex-col items-center gap-6 px-5 py-12 text-center sm:px-8 lg:px-10 xl:px-12">
+      <div className="section-spacing mx-auto flex max-w-7xl flex-col items-center gap-6 px-5 text-center sm:px-8 lg:px-10 xl:px-12">
         <span className="text-lg font-bold text-gradient-brand">{profile.siteName}</span>
 
         <div className="flex items-center gap-2">

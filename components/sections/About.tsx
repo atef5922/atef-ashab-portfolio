@@ -23,7 +23,7 @@ export default function About() {
   });
 
   return (
-    <section id="about" className="relative isolate overflow-hidden py-6 sm:py-14 lg:py-16">
+    <section id="about" className="section-spacing relative isolate overflow-hidden">
       <div aria-hidden="true" className="absolute top-1/2 -left-48 -z-10 size-96 -translate-y-1/2 rounded-full bg-indigo-500/8 blur-3xl" />
 
       <div className="mx-auto max-w-7xl px-5 sm:px-8 lg:px-10 xl:px-12">
@@ -33,7 +33,7 @@ export default function About() {
           at a readable size — so the photo stacks above and the text gets the
           full width.
         */}
-        <div className="grid items-start gap-8 xl:grid-cols-[minmax(17rem,19rem)_minmax(0,1fr)] xl:gap-x-12 xl:gap-y-5 2xl:gap-x-14">
+        <div className="about-layout grid items-start gap-8 xl:grid-cols-[minmax(17rem,19rem)_minmax(0,1fr)] xl:gap-x-12 xl:gap-y-5 2xl:gap-x-14">
           <motion.header
             initial={{ opacity: 0, y: 16 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -46,7 +46,6 @@ export default function About() {
               Get to know me
             </span>
             <h2 className="mt-1.5 text-3xl font-bold tracking-tight sm:text-4xl">About me</h2>
-            <span aria-hidden="true" className="mt-4 block h-px w-16 bg-gradient-to-r from-primary to-violet-400/20 mx-auto xl:mx-0" />
           </motion.header>
 
           <motion.div
@@ -54,7 +53,7 @@ export default function About() {
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true, margin: "-80px" }}
             transition={{ duration: 0.55 }}
-            className="relative order-2 mx-auto w-full max-w-[19rem] xl:col-start-1 xl:row-start-2 xl:mx-0"
+            className="about-photo relative order-2 mx-auto w-full max-w-[19rem] xl:col-start-1 xl:row-start-2 xl:mx-0"
           >
             <div aria-hidden="true" className="absolute -inset-3 rounded-[2rem] bg-gradient-to-br from-indigo-500/18 via-transparent to-fuchsia-500/16 blur-xl" />
             <div className="relative rounded-[1.7rem] border border-white/10 bg-gradient-to-br from-indigo-500/70 via-violet-500/25 to-fuchsia-500/60 p-px shadow-[0_24px_60px_rgba(0,0,0,0.24)]">
@@ -93,7 +92,7 @@ export default function About() {
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true, margin: "-80px" }}
             transition={{ duration: 0.55 }}
-            className="@container/bio order-3 min-w-0 w-full max-w-[52rem] xl:col-start-2 xl:row-start-2"
+            className="about-copy @container/bio order-3 min-w-0 w-full max-w-[52rem] xl:col-start-2 xl:row-start-2"
           >
             <p className="text-xs font-semibold tracking-[0.18em] text-primary uppercase">Full Stack Web Developer</p>
             {/*
@@ -119,7 +118,7 @@ export default function About() {
                 return (
                   <div
                     key={detail.label}
-                    className="group flex min-w-0 items-center gap-2.5 rounded-2xl border border-border bg-surface px-3 py-2.5 transition-all duration-300 hover:border-primary/25 hover:bg-surface-strong"
+                    className="group flex min-w-0 items-center gap-2.5 rounded-[6px] border border-border bg-surface px-3 py-2.5 transition-colors duration-200 hover:border-primary/25 hover:bg-surface-strong"
                   >
                     <span className="flex size-7 shrink-0 items-center justify-center rounded-lg border border-primary/15 bg-primary/8 text-primary transition-colors duration-300 group-hover:bg-primary/12">
                       <Icon className="size-3.5" />
@@ -133,7 +132,7 @@ export default function About() {
               })}
             </dl>
 
-            <div className="mt-5 flex flex-col gap-2 sm:flex-row">
+            <div className="about-actions mt-5 flex flex-col gap-2 sm:flex-row">
               <a
                 href="#contact"
                 className={cn(

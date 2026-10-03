@@ -2,7 +2,8 @@
 
 import Image from "next/image";
 import { useEffect, useMemo, useRef, useState, type ComponentType } from "react";
-import { motion, AnimatePresence, useReducedMotion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
+import { usePrefersReducedMotion } from "@/hooks/usePrefersReducedMotion";
 import { ChevronLeft, ChevronRight, ExternalLink, Globe, ZoomIn } from "lucide-react";
 import { Button, buttonVariants } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
@@ -52,10 +53,10 @@ function buildPageList(current: number, total: number): (number | "gap")[] {
   );
 }
 
-// size-11 on phones keeps the arrows at a 44px touch target; size-10 from sm up
+// size-11 on mobile keeps the arrows at a 44px touch target; size-10 on desktop
 // matches the arrow buttons on the resume carousel.
 const pagerButtonClass =
-  "inline-flex size-11 shrink-0 cursor-pointer items-center justify-center rounded-full border border-border bg-surface text-muted-foreground transition-all duration-200 hover:border-primary/30 hover:bg-primary/10 hover:text-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background disabled:pointer-events-none disabled:cursor-not-allowed disabled:opacity-40 sm:size-10";
+  "inline-flex size-11 shrink-0 cursor-pointer items-center justify-center rounded-full border border-border bg-surface text-muted-foreground transition-all duration-200 hover:border-primary/30 hover:bg-primary/10 hover:text-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background disabled:pointer-events-none disabled:cursor-not-allowed disabled:opacity-40 lg:size-10";
 
 export default function Portfolio() {
   const items = getAllPortfolioItems();
@@ -63,13 +64,13 @@ export default function Portfolio() {
   const [activeFilter, setActiveFilter] = useState<ProjectCategory>("all");
   const [preview, setPreview] = useState<PortfolioItem | null>(null);
   const [page, setPage] = useState(1);
-  const [pageSize, setPageSize] = useState(DESKTOP_PAGE_SIZE);
+  const [pageSize, setPageSize] = useState<number>(DESKTOP_PAGE_SIZE);
   const gridRef = useRef<HTMLDivElement>(null);
   const hasPaged = useRef(false);
-  const reduceMotion = useReducedMotion();
+  const reduceMotion = usePrefersReducedMotion();
 
   useEffect(() => {
-    const mql = window.matchMedia("(max-width: 639px)");
+    const mql = window.matchMedia("(max-width: 1023px)");
     const applySize = () => setPageSize(mql.matches ? MOBILE_PAGE_SIZE : DESKTOP_PAGE_SIZE);
     applySize();
     mql.addEventListener("change", applySize);
@@ -117,14 +118,14 @@ export default function Portfolio() {
   }
 
   return (
-    <section id="portfolio" className="relative overflow-hidden py-8 sm:py-16 lg:py-20">
+    <section id="portfolio" className="section-spacing relative overflow-hidden">
       <div className="relative z-10 mx-auto max-w-7xl px-5 sm:px-8 lg:px-10 xl:px-12">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-100px" }}
           transition={{ duration: 0.6 }}
-          className="mb-10 text-center"
+          className="section-heading-spacing text-center"
         >
           <span className="eyebrow">Portfolio</span>
           <h2 className="mt-2 text-3xl font-bold sm:text-4xl">Selected Work</h2>
@@ -133,7 +134,7 @@ export default function Portfolio() {
           </p>
         </motion.div>
 
-        <div className="mb-10 flex flex-nowrap justify-start gap-2 overflow-x-auto [scrollbar-width:none] sm:flex-wrap sm:justify-center sm:overflow-visible [&::-webkit-scrollbar]:hidden">
+        <div className="project-filters section-heading-spacing flex flex-nowrap justify-start gap-2 overflow-x-auto [scrollbar-width:none] sm:flex-wrap sm:justify-center sm:overflow-visible [&::-webkit-scrollbar]:hidden">
           {filters.map((filter) => {
             const isActive = activeFilter === filter.filterKey;
             return (
@@ -179,8 +180,8 @@ export default function Portfolio() {
                         sizes="(min-width: 1024px) calc((100vw - 24rem) / 3), (min-width: 640px) calc((100vw - 4.5rem) / 2), calc(100vw - 2rem)"
                         className="size-full object-cover transition-transform duration-500 group-hover:scale-110"
                       />
-                      <div className="absolute inset-0 flex items-center justify-center gap-2 bg-black/60 opacity-0 transition-opacity group-hover:opacity-100">
-                        <Button size="icon" variant="secondary" onClick={() => setPreview(item)}>
+                      <div className="project-actions absolute inset-0 flex items-center justify-center gap-2 bg-black/60 opacity-0 transition-opacity group-hover:opacity-100 group-focus-within:opacity-100">
+                        <Button size="icon" variant="secondary" aria-label={`Preview ${item.title}`} onClick={() => setPreview(item)}>
                           <ZoomIn className="size-4" />
                         </Button>
                         {item.demoUrl && (
@@ -237,12 +238,12 @@ export default function Portfolio() {
                 <ChevronLeft className="size-4" />
               </button>
 
-              {/* Numbers need room; below sm the position is shown as text instead. */}
-              <span className="px-3 text-sm text-muted-foreground tabular-nums sm:hidden">
+              {/* Mobile uses a compact page counter with 44px arrow controls. */}
+              <span className="px-3 text-sm text-muted-foreground tabular-nums lg:hidden">
                 <span className="font-semibold text-foreground">{currentPage}</span> / {totalPages}
               </span>
 
-              <div className="hidden items-center gap-1.5 sm:flex">
+              <div className="hidden items-center gap-1.5 lg:flex">
                 {pageList.map((entry, index) =>
                   entry === "gap" ? (
                     <span

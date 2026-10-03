@@ -1,10 +1,8 @@
 "use client";
 
 import Image from "next/image";
-import { useState } from "react";
 import { motion } from "framer-motion";
 import {
-  Menu,
   Home,
   UserRound,
   Sparkles,
@@ -15,8 +13,8 @@ import {
   MapPin,
   type LucideIcon,
 } from "lucide-react";
-import { Button, buttonVariants } from "@/components/ui/button";
-import { Sheet, SheetContent, SheetTitle, SheetTrigger } from "@/components/ui/sheet";
+import { buttonVariants } from "@/components/ui/button";
+import MobileNavigation from "@/components/layout/MobileNavigation";
 import { GithubIcon, LinkedinIcon, InstagramIcon, TwitterIcon, FacebookIcon } from "@/components/icons/social-icons";
 import { cn } from "@/lib/utils";
 import { profile } from "@/models/profile";
@@ -156,7 +154,6 @@ function SidebarContent({ activeId, onNavigate }: { activeId: string; onNavigate
 }
 
 export default function Header() {
-  const [open, setOpen] = useState(false);
   const activeId = useScrollSpy(sectionIds);
 
   return (
@@ -165,26 +162,7 @@ export default function Header() {
         <SidebarContent activeId={activeId} />
       </aside>
 
-      <div className="fixed top-4 right-4 z-50 lg:hidden">
-        <Sheet open={open} onOpenChange={setOpen}>
-          <SheetTrigger
-            render={
-              <Button
-                variant="outline"
-                size="icon"
-                className="size-11 rounded-full border-white/15 bg-black/45 text-white backdrop-blur-md hover:bg-black/60 hover:text-white dark:border-white/15 dark:bg-black/45 dark:text-white dark:hover:bg-black/60 dark:hover:text-white"
-              />
-            }
-          >
-            <Menu className="size-5" />
-            <span className="sr-only">Open menu</span>
-          </SheetTrigger>
-          <SheetContent side="left" className="w-72 border-border bg-background/95 p-0 backdrop-blur-xl">
-            <SheetTitle className="sr-only">Site navigation</SheetTitle>
-            <SidebarContent activeId={activeId} onNavigate={() => setOpen(false)} />
-          </SheetContent>
-        </Sheet>
-      </div>
+      <MobileNavigation activeId={activeId} />
     </>
   );
 }

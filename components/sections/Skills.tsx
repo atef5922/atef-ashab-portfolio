@@ -93,14 +93,14 @@ function SkillRow({ skill, index }: { skill: SkillItem; index: number }) {
 
 export default function Skills() {
   return (
-    <section id="skills" className="relative overflow-hidden py-8 sm:py-16 lg:py-20">
+    <section id="skills" className="section-spacing relative overflow-hidden">
       <div className="relative z-10 mx-auto max-w-7xl px-5 sm:px-8 lg:px-10 xl:px-12">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-100px" }}
           transition={{ duration: 0.6 }}
-          className="mb-10 text-center sm:mb-12"
+          className="section-heading-spacing text-center"
         >
           <span className="eyebrow">Skills</span>
           <h2 className="mt-2 text-2xl font-bold sm:text-4xl">Technologies I Work With</h2>

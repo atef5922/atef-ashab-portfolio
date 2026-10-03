@@ -16,6 +16,8 @@ export interface CertificationEntry {
   title: string;
   issuer: string;
   image: string;
+  imageWidth: number;
+  imageHeight: number;
   date?: string;
 }
 
@@ -74,45 +76,61 @@ export const resume: Resume = {
       title: "Data Analytics Essentials",
       issuer: "Cisco Networking Academy",
       image: "/assets/certificates/Data Analytics Essentials.webp",
+      imageWidth: 1050,
+      imageHeight: 809,
       date: "May 9, 2026",
     },
     {
       title: "Web Development with JavaScript Career Launchpad",
       issuer: "Ostad",
       image: "/assets/certificates/Web Development with JavaScript.webp",
+      imageWidth: 1041,
+      imageHeight: 734,
     },
     {
       title: "AI Engineering Career Launchpad 2026",
       issuer: "Ostad",
       image: "/assets/certificates/Ai Engineering.webp",
+      imageWidth: 1114,
+      imageHeight: 787,
     },
     {
       title: "Cyber Security Career Launchpad for Absolute Beginners",
       issuer: "Ostad",
       image: "/assets/certificates/Cyber Security.webp",
+      imageWidth: 1111,
+      imageHeight: 783,
     },
     {
       title: "Data Analysis with ChatGPT",
       issuer: "365 Data Science",
       image: "/assets/certificates/Data Analysis.webp",
+      imageWidth: 1061,
+      imageHeight: 712,
       date: "November 14, 2025",
     },
     {
       title: "Excel Essentials for Workplace Productivity",
       issuer: "Passport to Earning Bangladesh",
       image: "/assets/certificates/Excel.webp",
+      imageWidth: 1259,
+      imageHeight: 850,
       date: "April 30, 2026",
     },
     {
       title: "Presentation & Public Speaking",
       issuer: "10 Minute School",
       image: "/assets/certificates/Presentation.webp",
+      imageWidth: 1108,
+      imageHeight: 779,
       date: "May 1, 2026",
     },
     {
       title: "English Grammar Fundamentals",
       issuer: "10 Minute School",
       image: "/assets/certificates/English Grammer.webp",
+      imageWidth: 922,
+      imageHeight: 651,
       date: "November 29, 2025",
     },
   ],

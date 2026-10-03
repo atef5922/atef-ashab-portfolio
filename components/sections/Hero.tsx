@@ -1,7 +1,8 @@
 "use client";
 
 import Image from "next/image";
-import { motion, useReducedMotion, type Variants } from "framer-motion";
+import { motion, type Variants } from "framer-motion";
+import { usePrefersReducedMotion } from "@/hooks/usePrefersReducedMotion";
 import { ArrowUpRight, Download, Mail, MapPin } from "lucide-react";
 import { SiNextdotjs, SiPostgresql, SiReact, SiWordpress } from "react-icons/si";
 import type { IconType } from "react-icons";
@@ -38,7 +39,7 @@ const selectedStack: { name: string; icon: IconType; color?: string }[] = [
 ];
 
 export default function Hero() {
-  const prefersReducedMotion = useReducedMotion();
+  const prefersReducedMotion = usePrefersReducedMotion();
   const typedRole = useTypewriter(profile.typedRoles, {
     typingSpeed: 80,
     erasingSpeed: 42,
@@ -51,7 +52,7 @@ export default function Hero() {
   return (
     <section
       id="hero"
-      className="relative isolate min-h-svh overflow-hidden bg-[#070b18] text-white md:min-h-[45rem] lg:h-[clamp(42.5rem,88svh,56.25rem)] lg:min-h-0"
+      className="mobile-hero relative isolate min-h-svh overflow-hidden bg-[#070b18] text-white md:min-h-[45rem] lg:h-[clamp(42.5rem,88svh,56.25rem)] lg:min-h-0"
     >
       <div
         aria-hidden="true"
@@ -88,7 +89,7 @@ export default function Hero() {
         variants={container}
         initial={prefersReducedMotion ? false : "hidden"}
         animate="show"
-        className="relative z-10 mx-auto flex min-h-svh max-w-7xl items-end px-5 pt-24 pb-24 sm:px-8 sm:pt-72 sm:pb-28 md:min-h-[45rem] md:items-center md:px-10 md:py-24 lg:h-full lg:min-h-0 lg:px-10 xl:px-12"
+        className="hero-content relative z-10 mx-auto flex min-h-svh max-w-7xl items-end px-5 pt-24 pb-24 sm:px-8 sm:pt-72 sm:pb-28 md:min-h-[45rem] md:items-center md:px-10 md:py-24 lg:h-full lg:min-h-0 lg:px-10 xl:px-12"
       >
         <div className="w-full max-w-[38rem] sm:max-w-[32rem] md:max-w-[30rem] lg:max-w-[31rem] xl:max-w-[38rem]">
           <motion.div variants={item} className="flex flex-wrap items-center gap-x-4 gap-y-2">
