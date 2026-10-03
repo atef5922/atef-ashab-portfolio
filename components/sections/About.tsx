@@ -1,8 +1,9 @@
 "use client";
 
 import Image from "next/image";
+import { useState } from "react";
 import { motion } from "framer-motion";
-import { ArrowUpRight, Briefcase, Building2, Download, Eye, GraduationCap, Mail, MapPin, Sparkles, type LucideIcon } from "lucide-react";
+import { ArrowUpRight, Briefcase, Building2, ChevronDown, Download, Eye, GraduationCap, Mail, MapPin, Sparkles, type LucideIcon } from "lucide-react";
 import { buttonVariants } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 import { profile } from "@/models/profile";
@@ -17,6 +18,7 @@ const featuredDetails: Record<string, LucideIcon> = {
 const featuredLabels = ["Role", "Company", "Degree", "City"];
 
 export default function About() {
+  const [descriptionExpanded, setDescriptionExpanded] = useState(false);
   const details = featuredLabels.flatMap((label) => {
     const detail = profile.bioDetails.find((item) => item.label === label);
     return detail ? [detail] : [];
@@ -93,6 +95,7 @@ export default function About() {
             viewport={{ once: true, margin: "-80px" }}
             transition={{ duration: 0.55 }}
             className="about-copy @container/bio order-3 min-w-0 w-full max-w-[52rem] xl:col-start-2 xl:row-start-2"
+            data-description-expanded={descriptionExpanded}
           >
             <p className="text-xs font-semibold tracking-[0.18em] text-primary uppercase">Full Stack Web Developer</p>
             {/*
@@ -104,13 +107,25 @@ export default function About() {
             <h3 className="mt-3 text-xl leading-tight font-semibold tracking-tight text-balance sm:text-[clamp(1.2rem,3.44cqi,2rem)]">
               Building thoughtful web products, from interface to backend.
             </h3>
-            <p className="mt-4 text-justify text-sm leading-6 text-muted-foreground sm:text-[0.95rem] sm:leading-7">
+            <p className="about-description mt-4 text-justify text-sm leading-6 text-muted-foreground sm:text-[0.95rem] sm:leading-7">
               I&apos;m Md Atef Ashab Sifat, a Full Stack Web Developer at Mugnee IT Solutions and a Computer Science graduate from Daffodil International University.
-              I turn practical requirements into responsive interfaces and dependable backend solutions that are clear, maintainable, and built for real-world use.
+              <span id="about-description-more" className="about-description-extra">
+                {" "}I turn practical requirements into responsive interfaces and dependable backend solutions that are clear, maintainable, and built for real-world use.
+              </span>
             </p>
-            <p className="mt-3 text-justify text-sm leading-6 text-muted-foreground sm:text-[0.95rem] sm:leading-7">
+            <p id="about-experience-more" className="about-description about-description-extra mt-3 text-justify text-sm leading-6 text-muted-foreground sm:text-[0.95rem] sm:leading-7">
               My experience spans JavaScript, React, WordPress, SQL, and core web technologies. I care about clean architecture, thoughtful user experiences, and continuous improvement while deepening my expertise in the MERN stack and Java.
             </p>
+            <button
+              type="button"
+              aria-expanded={descriptionExpanded}
+              aria-controls="about-description-more about-experience-more"
+              onClick={() => setDescriptionExpanded((expanded) => !expanded)}
+              className="mt-1 inline-flex min-h-11 cursor-pointer items-center gap-1.5 rounded-md text-sm font-semibold text-indigo-300 transition-colors hover:text-indigo-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background lg:hidden"
+            >
+              {descriptionExpanded ? "Show less" : "Learn more"}
+              <ChevronDown aria-hidden="true" className={`size-4 transition-transform motion-reduce:transition-none ${descriptionExpanded ? "rotate-180" : ""}`} />
+            </button>
 
             <dl className="mt-6 grid grid-cols-1 gap-2 sm:grid-cols-2">
               {details.map((detail) => {

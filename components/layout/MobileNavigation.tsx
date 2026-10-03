@@ -34,7 +34,7 @@ export default function MobileNavigation({ activeId }: { activeId: string }) {
             <span>{label}</span>
           </a>
         ))}
-        <SheetTrigger className="mobile-tab" data-active={!["hero", "about", "portfolio", "contact"].includes(activeId) || undefined}>
+        <SheetTrigger className="mobile-tab" data-active={open || undefined}>
           <Menu aria-hidden="true" className="size-5" />
           <span>More</span>
         </SheetTrigger>

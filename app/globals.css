@@ -340,6 +340,8 @@
   .about-copy h3 { font-size: 1.25rem; line-height: 1.4; }
   .about-copy > p { font-size: 0.875rem; line-height: 1.75; }
   .about-copy > p:first-child { font-size: 0.65rem; }
+  .about-copy .about-description { text-align: justify; text-justify: inter-word; hyphens: auto; }
+  .about-copy[data-description-expanded="false"] .about-description-extra { display: none; }
   .about-copy dl { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px; margin-top: 20px; }
   .about-copy dl > div { align-items: flex-start; padding: 10px; gap: 8px; }
   .about-copy dd { font-size: 0.75rem; line-height: 1.45; -webkit-line-clamp: unset; }
